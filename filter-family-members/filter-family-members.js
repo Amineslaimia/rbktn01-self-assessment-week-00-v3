@@ -50,7 +50,31 @@
 
 
 
+var result=[]
+
 var filterFamilyMembers = function (familyTree, truthTest) {
   // All your code in this function body
+  var result=[]
+  if  (Array.isArray(familyTree)){
+     
+      for(var i =0;i<familyTree.length;i++){
+           filterFamilyMembers(familyTree[i])
+      }
+  }else{
+  
+      
+    if(familyTree.location=== 'Berkeley'){
+       
+      
+      result.push(familyTree.firstName+' '+familyTree.lastName)
+    }if(familyTree.children.length!==0){
+       
+     
+       
+      filterFamilyMembers(familyTree.children)
+        }
+    
+  
+  }
+  return result
 };
-
